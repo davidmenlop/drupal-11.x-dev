@@ -1,0 +1,10 @@
+name: <script>alert('Evil theme name');</script>
+type: theme
+description: <script>alert('Evil theme desc');</script>
+# version: VERSION
+base theme: false
+
+# Information added by Drupal.org packaging script on 2024-08-31
+version: '11.0.0-alpha1+508-dev'
+project: 'drupal'
+datestamp: 1725063560

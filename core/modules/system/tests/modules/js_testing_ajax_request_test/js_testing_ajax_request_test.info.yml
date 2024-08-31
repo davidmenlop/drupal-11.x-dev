@@ -1,0 +1,10 @@
+name: 'AJAX request tracking'
+description: 'Tracks AJAX requests to allow JS tests to reliably wait and observe these.'
+type: module
+package: Testing
+# version: VERSION
+
+# Information added by Drupal.org packaging script on 2024-08-31
+version: '11.0.0-alpha1+508-dev'
+project: 'drupal'
+datestamp: 1725063560

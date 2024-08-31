@@ -1,0 +1,12 @@
+name: 'Layout Builder element test'
+type: module
+description: 'Support module for testing the layout builder element.'
+package: Testing
+# version: VERSION
+dependencies:
+  - drupal:layout_builder
+
+# Information added by Drupal.org packaging script on 2024-08-31
+version: '11.0.0-alpha1+508-dev'
+project: 'drupal'
+datestamp: 1725063560

@@ -1,0 +1,17 @@
+# Ignorar la instalación de Drupal
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/vendor/
+
+# Ignorar archivos temporales, cachés y logs
+/tmp/
+/sites/*/files/css/
+/sites/*/files/js/
+/sites/*/files/php/
+/sites/*/files/styles/
+/sites/default/files/
+
+# Ignorar configuraciones sensibles
+/sites/default/settings.php
+/sites/default/services.yml

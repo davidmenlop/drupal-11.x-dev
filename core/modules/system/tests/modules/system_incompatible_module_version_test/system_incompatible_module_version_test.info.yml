@@ -1,0 +1,10 @@
+name: 'System incompatible module version test'
+type: module
+description: 'Support module for testing system dependencies.'
+package: Testing
+# version: '1.0'
+
+# Information added by Drupal.org packaging script on 2024-08-31
+version: '11.0.0-alpha1+508-dev'
+project: 'drupal'
+datestamp: 1725063560

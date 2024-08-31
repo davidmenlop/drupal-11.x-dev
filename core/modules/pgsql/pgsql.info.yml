@@ -1,0 +1,10 @@
+name: PostgreSQL
+type: module
+description: 'Provides the PostgreSQL database driver.'
+package: Core
+# version: VERSION
+
+# Information added by Drupal.org packaging script on 2024-08-31
+version: '11.0.0-alpha1+508-dev'
+project: 'drupal'
+datestamp: 1725063560
