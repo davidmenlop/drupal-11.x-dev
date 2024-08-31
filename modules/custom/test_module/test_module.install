@@ -1,0 +1,105 @@
+<?php
+
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_install().
+ */
+function test_module_install() {
+  try {
+    // Crear el vocabulario "Tipo de Documento".
+    $vocabulary = Vocabulary::create([
+      'vid' => 'document_type',
+      'name' => 'Tipo de Documento',
+    ]);
+    $vocabulary->save();
+
+    // Crear el vocabulario "País".
+    $vocabulary = Vocabulary::create([
+      'vid' => 'country',
+      'name' => 'País',
+    ]);
+    $vocabulary->save();
+
+    // Agregar términos a los vocabularios.
+    $terms = [
+      'document_type' => ['DNI', 'Pasaporte'],
+      'country' => ['Argentina', 'Brasil', 'Chile'],
+    ];
+
+    foreach ($terms as $vocabulary_id => $term_names) {
+      foreach ($term_names as $name) {
+        $term = Term::create([
+          'vid' => $vocabulary_id,
+          'name' => $name,
+        ]);
+        $term->save();
+      }
+    }
+  }
+  catch (Exception $e) {
+    \Drupal::logger('test_module')->error($e->getMessage());
+  }
+}
+
+/**
+ * Implements hook_schema().
+ */
+function test_module_schema() {
+  $schema['test_form_data'] = [
+    'description' => 'Table to store form data from Test Module.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique ID for each record.',
+      ],
+      'first_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'First Name of the user.',
+      ],
+      'last_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Last Name of the user.',
+      ],
+      'document_type' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Type of the document.',
+      ],
+      'document_number' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Document number.',
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Email address.',
+      ],
+      'phone' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Phone number.',
+      ],
+      'country' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Country of the user.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

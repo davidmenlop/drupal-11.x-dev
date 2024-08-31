@@ -1,0 +1,24 @@
+test_module.form:
+  path: '/test/formulario'
+  defaults:
+    _form: '\Drupal\test_module\Form\TestForm'
+    _title: 'Formulario de prueba'
+  requirements:
+    _permission: 'access content'
+
+test_module.data:
+  path: '/test/formulario/data'
+  defaults:
+    _controller: '\Drupal\test_module\Controller\TestController::listData'
+    _title: 'Listado de datos'
+  requirements:
+    _permission: 'access content'
+
+test_module.api:
+  path: '/API/formulario'
+  defaults:
+    _controller: '\Drupal\test_module\Controller\TestApiController::getData'
+  requirements:
+    _permission: 'access content'
+    _format: 'json'
+

@@ -1,0 +1,7 @@
+name: 'Test Module'
+type: module
+description: 'Módulo personalizado para un formulario de ejemplo.'
+core_version_requirement: ^8 || ^9 || ^10
+package: Custom
+dependencies:
+  - taxonomy
