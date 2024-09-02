@@ -897,3 +897,10 @@ $databases['default']['default'] = array (
 );
 $settings['trusted_host_patterns'] = ['^localhost$', '^127\.0\.0\.1$', '^nombre_del_sitio\.com$'];
 $base_url = 'http://localhost:8080';
+
+// Deshabilitar la agregación de CSS.
+$config['system.performance']['css']['preprocess'] = FALSE;
+
+// Deshabilitar la agregación de JavaScript.
+$config['system.performance']['js']['preprocess'] = FALSE;
+
