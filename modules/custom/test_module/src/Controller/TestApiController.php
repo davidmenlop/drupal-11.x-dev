@@ -4,6 +4,7 @@ namespace Drupal\test_module\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response; // Importa la clase Response.
 use Drupal\Core\Database\Database;
 
 class TestApiController extends ControllerBase {
@@ -28,8 +29,15 @@ class TestApiController extends ControllerBase {
       ];
     }
 
-    // Retornar los datos en formato JSON.
-    return new JsonResponse($data);
+    // Crear la respuesta JSON.
+    $response = new JsonResponse($data);
+
+    // Añadir los encabezados CORS necesarios.
+    $response->headers->set('Access-Control-Allow-Origin', '*'); // Cambia '*' por 'http://localhost:3001' en producción.
+    $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    // Retornar la respuesta con los encabezados CORS.
+    return $response;
   }
 }
-
